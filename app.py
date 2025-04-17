@@ -22,7 +22,7 @@ outputs = tf.keras.layers.Dense(9, activation='softmax')(x)  # Adaptado a 9 clas
 model = tf.keras.Model(inputs=base_model.input, outputs=outputs)
 
 # Cargar pesos
-model.load_weights("modelo_final.keras")
+model.load_weights("modelo_pesos.weights.h5")
 
 # Cargar historial si existe
 try:

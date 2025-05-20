@@ -107,17 +107,17 @@ if uploaded_file:
 
     st.subheader("Grad-CAM: Zonas activadas por el modelo")
     st.image(gradcam_image, caption="Grad-CAM", width=300)
-    st.markdown("- 🔥 El modelo se enfoca en estas regiones para tomar su decisión.")
+    st.markdown("-El modelo se enfoca en estas regiones para tomar su decisión.")
 
     # LIME
     st.subheader("LIME: Regiones explicativas de la predicción")
     lime_image_np = generate_lime_explanation(model, image.resize((224, 224)))
     st.image(lime_image_np, caption="LIME", width=300)
-    st.markdown("- 🎯 LIME destaca las regiones de la imagen más relevantes para la predicción.")
+    st.markdown("LIME destaca las regiones de la imagen más relevantes para la predicción.")
 
     # Datos
     st.markdown("---")
-    st.subheader("🧾 Datos del paciente")
+    st.subheader("Datos del paciente")
     st.write(f"**Nombre:** {nombre or 'No especificado'}")
     st.write(f"**Edad:** {edad}")
     st.write(f"**Médico:** {medico or 'No especificado'}")
@@ -126,7 +126,7 @@ if uploaded_file:
     st.markdown(f"**Resultado del modelo:** {class_name}")
 
     # PDF
-    if st.button("📄 Generar informe PDF"):
+    if st.button("Generar informe PDF"):
         pdf_path = "informe_paciente.pdf"
         with PdfPages(pdf_path) as pdf:
             fig, ax = plt.subplots(figsize=(6, 6))
@@ -163,7 +163,7 @@ if uploaded_file:
 
     # Histórico
     if history:
-        st.subheader("📈 Entrenamiento del modelo")
+        st.subheader("Entrenamiento del modelo")
         fig, ax = plt.subplots(1, 2, figsize=(12, 4))
         ax[0].plot(history['accuracy'], label='Entrenamiento')
         ax[0].plot(history['val_accuracy'], label='Validación')
